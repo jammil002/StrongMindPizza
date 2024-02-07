@@ -15,7 +15,7 @@ The Pizza Management Web Application is deployed and accessible on Heroku. Visit
 
 ## Live Demo
 
-I created a loom video that quickly goes over each of the points here: [Loom Video Link](#).
+I created a loom video that quickly goes over each of the points here: [Loom Video Link](https://www.loom.com/share/950154332aca4250acea16b3a2428b80).
 
 ## Getting Started
 
