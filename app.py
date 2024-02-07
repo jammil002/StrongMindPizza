@@ -1,9 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
-availableToppings = ["Tomato Sauce", "Mozzarella", "Pepperoni", "Jalapeños"]
-pizzas = {}
 
 # Home
 @app.route("/")
@@ -18,15 +17,17 @@ def managePizza():
         toppings = request.form.getlist("toppings")
 
         if pizzaName and toppings:
-            pizzas[pizzaName] = toppings
-        
+            session['pizzas'][pizzaName] = toppings
+            session.modified = True  # Save session data
+
         return redirect(url_for("managePizza"))
 
-    return render_template("pizza.html", pizzas=pizzas, availableToppings=availableToppings)
+    return render_template("pizza.html", pizzas=session['pizzas'], availableToppings=session['availableToppings'])
 
 @app.route("/deletePizza/<pizzaName>")
 def deletePizza(pizzaName):
-    pizzas.pop(pizzaName, None)
+    session['pizzas'].pop(pizzaName, None)
+    session.modified = True  # Save session data
     return redirect(url_for("managePizza"))
 
 # Toppings
@@ -34,16 +35,18 @@ def deletePizza(pizzaName):
 def manageToppings():
     if request.method == "POST":
         newTopping = request.form.get("toppingName")
-        if newTopping and newTopping not in availableToppings:
-            availableToppings.append(newTopping)
+        if newTopping and newTopping not in session['availableToppings']:
+            session['availableToppings'].append(newTopping)
+            session.modified = True  # Save session data
             return redirect(url_for("manageToppings"))
 
-    return render_template("toppings.html", availableToppings=availableToppings)
+    return render_template("toppings.html", availableToppings=session['availableToppings'])
 
 @app.route("/deleteTopping/<topping>")
 def delete_topping(topping):
-    if topping in availableToppings:
-        availableToppings.remove(topping)
+    if topping in session['availableToppings']:
+        session['availableToppings'].remove(topping)
+        session.modified = True  # Save session data
     return redirect(url_for("manageToppings"))
 
 # Error Handling
