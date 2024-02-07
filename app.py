@@ -7,11 +7,27 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 # Home
 @app.route("/")
 def homePage():
+    # Initialize availableToppings if not already in session
+    if 'availableToppings' not in session:
+        session['availableToppings'] = ["Tomato Sauce", "Mozzarella", "Pepperoni", "Jalapeños"]
+
+    # Initialize pizzas if not already in session
+    if 'pizzas' not in session:
+        session['pizzas'] = {}
+    
+    session.modified = True  # Save session data
     return render_template('index.html')
 
 # Pizza
 @app.route("/pizza", methods=["GET", "POST"])
 def managePizza():
+    # Check if availableToppings and pizzas are in session
+    if 'availableToppings' not in session:
+        session['availableToppings'] = []
+
+    if 'pizzas' not in session:
+        session['pizzas'] = {}
+
     if request.method == "POST":
         pizzaName = request.form.get("pizzaName")
         toppings = request.form.getlist("toppings")
@@ -33,6 +49,10 @@ def deletePizza(pizzaName):
 # Toppings
 @app.route("/toppings", methods=["GET", "POST"])
 def manageToppings():
+    # Check if availableToppings is in session
+    if 'availableToppings' not in session:
+        session['availableToppings'] = []
+
     if request.method == "POST":
         newTopping = request.form.get("toppingName")
         if newTopping and newTopping not in session['availableToppings']:
@@ -44,9 +64,10 @@ def manageToppings():
 
 @app.route("/deleteTopping/<topping>")
 def delete_topping(topping):
-    if topping in session['availableToppings']:
-        session['availableToppings'].remove(topping)
-        session.modified = True  # Save session data
+    if 'availableToppings' in session:
+        if topping in session['availableToppings']:
+            session['availableToppings'].remove(topping)
+            session.modified = True  # Save session data
     return redirect(url_for("manageToppings"))
 
 # Error Handling
