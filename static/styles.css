@@ -18,15 +18,16 @@ h2,
 h3,
 .highlight {
   font-family: "Poppins", sans-serif;
-  color: #3498db; /* Primary blue for headings */
+  color: #3498db;
 }
 
 form {
-  background-color: #f3e5ab; /* Adjusted to complement primary colors */
+  background-color: #fff8e1;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
-  border: 1px solid #3498db; /* Border color to match primary blue */
+  border: 1px solid #3498db;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 input[type="text"],
