@@ -55,7 +55,7 @@ Follow these steps to get your development environment running:
 
    Access the application at `http://127.0.0.1:5000/`.
 
-### Testing the Application Locally
+## Testing the Application Locally
 
 1. **Flask Debug Mode**:
     - Flask provides a convenient debug mode that automatically reloads the application when changes are made to the source code. To enable debug mode:
