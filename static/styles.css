@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Honk&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap");
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #f8efd4; /* Light pastel background */
+  font-family: "Poppins", sans-serif; /* Updated to Poppins */
+  color: #333;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+h1,
+h2,
+h3,
+.highlight {
+  /* Assuming you want all headings and highlighted text in Pacifico */
+  font-family: "Pacifico", cursive;
+  color: #d35400; /* Fun orange for headings */
+}
+
+form {
+  background-color: #f3e5ab; /* Lighter pastel for form background */
+  padding: 20px;
+  border-radius: 10px; /* Rounded borders */
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Rounded borders for inputs */
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #e74c3c; /* Pastel red */
+  color: white;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px; /* Rounded borders for buttons */
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #cb4335;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+  background-color: #fdebd0; /* Very light pastel */
+  padding: 10px;
+  border-radius: 5px; /* Rounded borders for list items */
+}
+
+a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.honk-font {
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "MORF" 15, "SHLN" 50;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100vh;
+  width: auto;
+}
+
+.larger-link {
+  font-size: 5em;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza</title>
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Manage Pizzas</h1>
+    <form action="/pizza" method="post">
+      <label for="pizzaName">Pizza Name:</label>
+      <input type="text" id="pizzaName" name="pizzaName" required />
+      <br />
+      <label for="toppings">Select Toppings:</label>
+      <select id="toppings" name="toppings" multiple required>
+        {% for topping in availableToppings %}
+        <option value="{{ topping }}">{{ topping }}</option>
+        {% endfor %}
+      </select>
+      <br />
+      <button type="submit">Add/Update Pizza</button>
+    </form>
+    <ul>
+      {% for pizza, toppings in pizzas.items() %}
+      <li>
+        {{ pizza }}: {{ toppings | join(', ') }}
+        <a href="/deletePizza/{{ pizza }}">Delete</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <a href="/toppings">Manage Toppings</a>
+  </body>
+</html>
