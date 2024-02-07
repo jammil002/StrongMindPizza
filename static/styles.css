@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Honk&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap");
 
 html,
@@ -8,9 +7,8 @@ body {
 
 body {
   background-color: #f8efd4; /* Light pastel background */
-  font-family: "Poppins", sans-serif; /* Updated to Poppins */
+  font-family: "Poppins", sans-serif;
   color: #333;
-  padding: 20px;
   max-width: 800px;
   margin: auto;
 }
@@ -19,16 +17,16 @@ h1,
 h2,
 h3,
 .highlight {
-  /* Assuming you want all headings and highlighted text in Pacifico */
-  font-family: "Pacifico", cursive;
-  color: #d35400; /* Fun orange for headings */
+  font-family: "Poppins", sans-serif;
+  color: #3498db; /* Primary blue for headings */
 }
 
 form {
-  background-color: #f3e5ab; /* Lighter pastel for form background */
+  background-color: #f3e5ab; /* Adjusted to complement primary colors */
   padding: 20px;
-  border-radius: 10px; /* Rounded borders */
+  border-radius: 10px;
   margin-bottom: 20px;
+  border: 1px solid #3498db; /* Border color to match primary blue */
 }
 
 input[type="text"],
@@ -38,22 +36,22 @@ select {
   margin: 10px 0;
   display: inline-block;
   border: 1px solid #ccc;
-  border-radius: 5px; /* Rounded borders for inputs */
+  border-radius: 5px;
   box-sizing: border-box;
 }
 
 button {
-  background-color: #e74c3c; /* Pastel red */
+  background-color: #3498db; /* Primary blue for buttons */
   color: white;
   padding: 14px 20px;
   margin: 10px 0;
   border: none;
-  border-radius: 5px; /* Rounded borders for buttons */
+  border-radius: 5px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #cb4335;
+  background-color: #2878a9; /* Darker shade of primary blue for hover effect */
 }
 
 ul {
@@ -63,26 +61,18 @@ ul {
 
 li {
   margin: 10px 0;
-  background-color: #fdebd0; /* Very light pastel */
+  background-color: #ffffff;
   padding: 10px;
-  border-radius: 5px; /* Rounded borders for list items */
+  border-radius: 5px;
 }
 
 a {
   text-decoration: none;
-  color: #3498db;
+  color: #3498db; /* Primary blue for links */
 }
 
 a:hover {
   text-decoration: underline;
-}
-
-.honk-font {
-  font-family: "Honk", system-ui;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: "MORF" 15, "SHLN" 50;
 }
 
 .flex-container {
